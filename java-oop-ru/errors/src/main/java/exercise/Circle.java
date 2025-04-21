@@ -11,7 +11,10 @@ public class Circle {
     private final int radius;
 
     public double getSquare() throws NegativeRadiusException {
-        return Math.sqrt(Math.PI * getRadius());
+        if (getRadius() < 0) {
+            throw new NegativeRadiusException("Не удалось посчитать площадь");
+        }
+        return Math.PI * (getRadius() * getRadius());
     }
 }
 // END
