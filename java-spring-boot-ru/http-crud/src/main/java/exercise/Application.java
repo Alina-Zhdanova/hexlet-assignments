@@ -37,7 +37,7 @@ public class Application {
             .toList();
     }
 
-    @GetMapping("/posts/{id} ")
+    @GetMapping("/posts/{id}")
     public Optional<Post> show(@PathVariable String id) {
         return posts.stream()
             .filter(p -> p.getId().equals(id))
