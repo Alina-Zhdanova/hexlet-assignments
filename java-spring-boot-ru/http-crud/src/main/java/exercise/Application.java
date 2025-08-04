@@ -29,7 +29,8 @@ public class Application {
     // BEGIN
 
     @GetMapping("/posts")
-    public List<Post> index(@RequestParam(defaultValue = "1") Integer page, @RequestParam(defaultValue = "10") Integer limit) {
+    public List<Post> index(@RequestParam(defaultValue = "1") Integer page,
+                            @RequestParam(defaultValue = "10") Integer limit) {
         return posts.stream()
             .skip((long) limit * page - limit)
             .limit(limit)
@@ -37,7 +38,7 @@ public class Application {
     }
 
     @GetMapping("/posts/{id} ")
-    public Optional<Post> show (@PathVariable String id) {
+    public Optional<Post> show(@PathVariable String id) {
         return posts.stream()
             .filter(p -> p.getId().equals(id))
             .findFirst();
