@@ -33,9 +33,14 @@ public class PostsController {
 
     @PostMapping("/users/{id}/posts")
     @ResponseStatus(HttpStatus.CREATED)
-    public Post newUserPost(@RequestBody Post post) {
-        posts.add(post);
-        return post;
+    public Post newUserPost(@RequestBody Post post, @PathVariable String id) {
+        var newPost = new Post();
+        newPost.setUserId(Integer.parseInt(id));
+        newPost.setSlug(post.getSlug());
+        newPost.setTitle(post.getTitle());
+        newPost.setBody(post.getBody());
+        posts.add(newPost);
+        return newPost;
     }
 
 }
