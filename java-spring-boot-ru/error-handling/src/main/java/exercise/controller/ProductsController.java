@@ -51,7 +51,6 @@ public class ProductsController {
     public Product update(@RequestBody Product update, @PathVariable Long id) {
         var updateProduct = productRepository.findById(id)
             .orElseThrow(() -> new ResourceNotFoundException("Product with id " + id + " not found"));
-        updateProduct.setId(update.getId());
         updateProduct.setTitle(update.getTitle());
         updateProduct.setPrice(update.getPrice());
         return updateProduct;
