@@ -36,9 +36,11 @@ public class Application {
 
             return new Night();
 
-        }
+        } else {
 
-        return new Day();
+            return new Day();
+
+        }
 
     }
 
