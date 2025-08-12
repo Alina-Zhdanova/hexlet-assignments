@@ -31,14 +31,14 @@ public class Application {
 
         var currentTime = LocalDateTime.now().toLocalTime();
 
-        if ((currentTime.isAfter(LocalTime.of(22, 0)) && currentTime.isBefore(LocalTime.MIDNIGHT))
-            || (currentTime.isAfter(LocalTime.MIDNIGHT) && currentTime.isBefore(LocalTime.of(6, 0)))) {
+        if (((currentTime.isAfter(LocalTime.of(6, 0)) || currentTime.equals(LocalTime.of(6, 0)))
+            && (currentTime.isBefore(LocalTime.of(22, 0)) || currentTime.equals(LocalTime.of(22, 0))))) {
 
-            return new Night();
+            return new Day();
 
         } else {
 
-            return new Day();
+            return new Night();
 
         }
 
